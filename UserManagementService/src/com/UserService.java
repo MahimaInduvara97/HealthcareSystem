@@ -26,4 +26,19 @@ public class UserService {
 	{
 	return userObj.readUser();
 	}
+	
+	@POST
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String insertItem(@FormParam("userName") String name,
+			@FormParam("userAge") String age,
+			@FormParam("userGender") String gender,
+			@FormParam("userPhone") String phone,
+			@FormParam("userEmail") String email)
+	{
+		
+		String output = userObj.insertUser(name, age, gender, phone, email);
+		return output;
+	}
 }
