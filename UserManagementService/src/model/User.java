@@ -109,10 +109,10 @@ public class User {
 	// binding values
 		preparedStmt.setString(1, Uname);
 		preparedStmt.setString(2, Uage);
-		preparedStmt.setString(2, Ugender);
-		preparedStmt.setString(2, Uphone);
-		preparedStmt.setString(4, Uemail);
-		preparedStmt.setInt(5, Integer.parseInt(UID));
+		preparedStmt.setString(3, Ugender);
+		preparedStmt.setString(4, Uphone);
+		preparedStmt.setString(5, Uemail);
+		preparedStmt.setInt(6, Integer.parseInt(UID));
 	// execute the statement
 			preparedStmt.execute();
 			con.close();

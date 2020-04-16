@@ -41,4 +41,23 @@ public class UserService {
 		String output = userObj.insertUser(name, age, gender, phone, email);
 		return output;
 	}
+	
+	@PUT
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String updateUser(String userData)
+	{
+	//Convert the input string to a JSON object
+	JsonObject userObject = new JsonParser().parse(userData).getAsJsonObject();
+	//Read the values from the JSON object
+	String UID = userObject.get("userID").getAsString();
+	String Uname = userObject.get("userName").getAsString();
+	String Uage = userObject.get("userAge").getAsString();
+	String Ugender = userObject.get("userGender").getAsString();
+	String Uphone = userObject.get("userPhone").getAsString();
+	String Uemail = userObject.get("userEmail").getAsString();
+	String output = userObj.updateUser(UID, Uname, Uage, Ugender, Uphone, Uemail);
+	return output;
+	}
 }
