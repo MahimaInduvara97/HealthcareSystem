@@ -125,7 +125,7 @@ public class User {
 					}
 					return output;
 				}
-	public String deleteUser(String itemID)
+	public String deleteUser(String UID)
 			{
 			String output = "";
 	try
@@ -138,7 +138,7 @@ public class User {
 			String query = "delete from users where userID=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 	// binding values
-			preparedStmt.setInt(1, Integer.parseInt(itemID));
+			preparedStmt.setInt(1, Integer.parseInt(UID));
 	// execute the statement
 			preparedStmt.execute();
 			con.close();
