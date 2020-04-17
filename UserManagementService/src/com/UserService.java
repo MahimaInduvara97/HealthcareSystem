@@ -35,10 +35,11 @@ public class UserService {
 			@FormParam("userAge") String age,
 			@FormParam("userGender") String gender,
 			@FormParam("userPhone") String phone,
-			@FormParam("userEmail") String email)
+			@FormParam("userEmail") String email,
+			@FormParam("password") String pwd)
 	{
 		
-		String output = userObj.insertUser(name, age, gender, phone, email);
+		String output = userObj.insertUser(name, age, gender, phone, email, pwd);
 		return output;
 	}
 	
@@ -57,7 +58,8 @@ public class UserService {
 	String Ugender = userObject.get("userGender").getAsString();
 	String Uphone = userObject.get("userPhone").getAsString();
 	String Uemail = userObject.get("userEmail").getAsString();
-	String output = userObj.updateUser(UID, Uname, Uage, Ugender, Uphone, Uemail);
+	String pwd = userObject.get("password").getAsString();
+	String output = userObj.updateUser(UID, Uname, Uage, Ugender, Uphone, Uemail, pwd);
 	return output;
 	}
 	
