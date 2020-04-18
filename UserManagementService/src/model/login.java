@@ -44,7 +44,6 @@ while (rs.next())
 		String pswd = rs.getString("password");
 		if(email.equals(emails) && password.equals(pswd)) {
 			output = "User found!";
-			
 		}
 		else {
 			output = " Sorry Check your username and password again!";
@@ -55,7 +54,7 @@ while (rs.next())
 
 con.close();
 
-			}
+		}
 catch (Exception e)
 		{
 output = "Error while Checking User details on databse.";
