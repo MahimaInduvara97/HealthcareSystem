@@ -40,5 +40,27 @@ public class DoctorService {
 		 String output = doc1.insertDoctor(dname,dphone,demail,dspecial,dhospital,ddate,dstatus);
 		return output;
 		}
+		//update
+		@PUT
+		@Path("/")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String updateDoctor(String dData)
+		{
+		//Convert the input string to a JSON object
+		 JsonObject doctor = new JsonParser().parse(dData).getAsJsonObject();
+		//Read the values from the JSON object
+		 String docID = doctor.get("docID").getAsString();
+		 String dname = doctor.get("dname").getAsString();
+		 String dphone = doctor.get("dphone").getAsString();
+		 String demail = doctor.get("demail").getAsString();
+		 String dspecial = doctor.get("dspecial").getAsString();
+		 String dhospital = doctor.get("dhospital").getAsString();
+		 String ddate = doctor.get("ddate").getAsString();
+		 String dstatus = doctor.get("dstatus").getAsString();
+		 
+		 String output = doc1.updateDoctor(docID,dname, dphone, demail, dspecial, dhospital, ddate, dstatus);
+		return output;
+		}
 
 }
