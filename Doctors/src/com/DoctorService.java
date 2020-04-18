@@ -17,13 +17,13 @@ public class DoctorService {
 	
 	Doctor doc1 = new Doctor();
 	//view
-	@GET
-	@Path("/")
-	@Produces(MediaType.TEXT_HTML)
-	public String readDoctorList()
-	 {
-	 return doc1.readDoctorList();
-	 }
+		@GET
+		@Path("/")
+		@Produces(MediaType.TEXT_HTML)
+		public String readDoctorList()
+		 {
+		 return doc1.readDoctorList();
+		 }
 	//insert
 		@POST
 		@Path("/")
@@ -40,7 +40,7 @@ public class DoctorService {
 		 String output = doc1.insertDoctor(dname,dphone,demail,dspecial,dhospital,ddate,dstatus);
 		return output;
 		}
-		//update
+	//update
 		@PUT
 		@Path("/")
 		@Consumes(MediaType.APPLICATION_JSON)
@@ -60,6 +60,21 @@ public class DoctorService {
 		 String dstatus = doctor.get("dstatus").getAsString();
 		 
 		 String output = doc1.updateDoctor(docID,dname, dphone, demail, dspecial, dhospital, ddate, dstatus);
+		return output;
+		}
+	//delete
+		@DELETE
+		@Path("/")
+		@Consumes(MediaType.APPLICATION_XML)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String deleteDoctor(String dData)
+		{
+		//Convert the input string to an XML document
+		 Document doc = Jsoup.parse(dData, "", Parser.xmlParser());
+
+		//Read the value from the element <itemID>
+		 String docID = doc.select("docID").text();
+		 String output = doc1.deleteDoctor(docID);
 		return output;
 		}
 
