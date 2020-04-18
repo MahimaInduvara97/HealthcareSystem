@@ -24,6 +24,21 @@ public class DoctorService {
 	 {
 	 return doc1.readDoctorList();
 	 }
-	
+	//insert
+		@POST
+		@Path("/")
+		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String insertDoctor(@FormParam("dname") String dname,
+		 @FormParam("dphone") String dphone,
+		 @FormParam("demail") String demail,
+		 @FormParam("dspecial") String dspecial,
+		 @FormParam("dhospital") String dhospital,
+		 @FormParam("ddate") String ddate,
+		 @FormParam("dstatus") String dstatus)
+		{
+		 String output = doc1.insertDoctor(dname,dphone,demail,dspecial,dhospital,ddate,dstatus);
+		return output;
+		}
 
 }
