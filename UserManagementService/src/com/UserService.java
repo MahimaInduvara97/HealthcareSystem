@@ -26,7 +26,6 @@ public class UserService {
 	{
 	return userObj.readUser();
 	}
-	
 	@POST
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
