@@ -88,7 +88,7 @@ public String readAppointments()
  //Convert the input string to an XML document
   Document doc = Jsoup.parse(appointmentData, "", Parser.xmlParser());
 
- //Read the value from the element <itemID>
+ //Read the value from the element <appoID>
   String appoID = doc.select("appoID").text();
   String output = appointmentObj.deleteAppointment(appoID);
   return output;
