@@ -15,7 +15,7 @@ import org.jsoup.parser.*;
 import org.jsoup.nodes.Document;
 
 import model.User;
-
+//view
 @Path("/User")
 public class UserService {
 	User userObj = new User();
