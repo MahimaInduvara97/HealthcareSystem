@@ -1,6 +1,7 @@
 package com;
 
 import javax.ws.rs.Consumes;
+
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -15,6 +16,8 @@ import org.jsoup.*;
 import org.jsoup.parser.*;
 import org.jsoup.nodes.Document;
 import model.login;
+
+//get login details
 @Path("/login")
 public class LoginService {
 	login loginObj = new login();
